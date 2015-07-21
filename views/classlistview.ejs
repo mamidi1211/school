@@ -1,0 +1,24 @@
+<h1><%= name %></h1>
+<p>
+<%= JSON.stringify(recorded) %>
+</p>
+
+<table border=1>
+
+<tr>
+<td> Name </td>
+<td> Age </td>
+</tr>
+
+<%  for(var i=0;i<recorded.length;i++){%>
+	<tr>
+
+		<td>
+		<a href="/class/view?id=<%= recorded[i].id %>"><%= recorded[i].name %>
+		</td>
+		<td>
+		<%= recorded[i].age %>
+		</td>
+<%}	%>
+
+</table>

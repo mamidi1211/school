@@ -32,9 +32,39 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  '/student/': {
+    view: 'myview'
+  },
+  '/class/': {
+    view: 'classview'
+  },
+  /*
+  /students/
+  get /students/  = viewAll   ?name=dasdfdsa&age=ewrwer
+  post /students/ = insert
+  get /students/:id = view
+  get /students/:id/edit = edit
+  post /student/:id = update
+  delete /student/:id = delete
+
+  */
+  'get /student/find': 'StudentController.find',
+  'post /student/insert': 'StudentController.insert',
+  'get /student/viewAll': 'StudentController.viewAll',
+  'get /student/view': 'StudentController.view',
+  'post /student/update': 'StudentController.update',
+  'get /student/edit/:id': 'StudentController.edit',
+
+
+
+  'get /class/find': 'ClassController.find',
+  'post /class/insert': 'ClassController.insert',
+  'get /class/viewAll': 'ClassController.viewAll',
+  'get /class/view': 'ClassController.view',
+  'post /class/update': 'ClassController.update',
+  'get /student/edit/:id': 'ClassController.edit',
+
+
 
   /***************************************************************************
   *                                                                          *
@@ -47,3 +77,4 @@ module.exports.routes = {
   ***************************************************************************/
 
 };
+
