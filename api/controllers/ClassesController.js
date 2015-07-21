@@ -10,11 +10,11 @@ module.exports = {
 	find:function(request, response){
 		// camelCase
 		//className	
-		var cname=request.query.clas;
+		var className=request.query.clas;
         
         sails.log("Done");
 
-        Classes.find({name: sname}).exec(function(error, classes){
+        Classes.find({name: className}).exec(function(error, classes){
                 if(error){
                   return response.serverError();
                 }
@@ -26,9 +26,11 @@ module.exports = {
 
 	insert:function(request,response){
 
-	var cname=request.body.number;
-	var cstrength=request.body.strength;
-	Classes.create({name:cname,strength:cstrength}).exec(function(error, classes){
+	var className=request.body.number;
+	var classStrength=request.body.strength;
+	sails.log(className);
+	sails.log(classStrength);
+	Classes.create({name:className,strength:classStrength}).exec(function(error, classes){
 		if(error){
 			return response.serverError();
 		}
@@ -43,31 +45,31 @@ module.exports = {
 
 edit:function(request,response){
 	console.log("##",request.params.all());
-	 var cid=request.params.all().id;
+	 var classid=request.params.all().id;
 	// var sname=request.body.name;
 	// var sage=request.body.age;
 	// sails.log(id)
-	console.log(cid);
+	console.log(classid);
 	
-	Classes.findOne({id:cid}).exec(function(error, classes){
+	Classes.findOne({id:classid}).exec(function(error, classes){
 		if(error){
 			return response.serverError();
 		}
 		else{
 
 			// Student.findOne({id: id})
-			console.log("##", student);
-			response.view('editclassview',{name : "Edited", edited: student});
+			console.log("##", classes);
+			response.view('classeditview',{name : "Edited", edited: classes});
 		}
 	});
 },	
 
 update:function(request,response){
-	var cid=request.body.id;
-	var cname=request.body.cname;
-	var sstrength=request.body.strength;
+	var classid=request.body.id;
+	var className=request.body.className;
+	var classStrength=request.body.classStrength;
 
-	Class.update({id:cid},{name:cname,strength:sstrength}).exec(function(error, classes){
+	Classes.update({id:classid},{name:className,strength:classStrength}).exec(function(error, classes){
 		if(error){
 			return response.serverError();
 		}
@@ -81,21 +83,21 @@ update:function(request,response){
 viewAll:function(request,response){
 
 
-	Student.find().exec(function(error, classes){
+	Classes.find().exec(function(error, classes){
 		if(error){
 			return response.serverError();
 		}
 		else{
-			return response.view('classlistView',{name : "Getting All Records", recorded: classes});
+			return response.view('classlistview',{name : "Getting All Records", recorded: classes});
 		}
 
 	});
 },
 
 view:function(request,response){
-    var abc=request.query.id;
-    sails.log(abc);
-	Student.findOne({id: abc}).exec(function(error, classes){
+    var classid=request.query.id;
+    sails.log(classid);
+	Classes.findOne({id: classid}).exec(function(error, classes){
         if(error){
         	return response.serverError();
         }

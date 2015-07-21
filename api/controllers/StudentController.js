@@ -40,11 +40,11 @@ module.exports = {
 
 find:function(request,response){    
 
-   var sname=request.query.student;
+   var studentName=request.query.student;
         
         sails.log("Done");
 
-        Student.find({name: sname}).exec(function(error, students){
+        Student.find({name: studentName}).exec(function(error, students){
                 if(error){
                   return response.serverError();
                 }
@@ -56,9 +56,9 @@ find:function(request,response){
 
 insert:function(request,response){
 
-	var sname=request.body.firstname;
-	var sage=request.body.age;
-	Student.create({name:sname,age:sage}).exec(function(error, students){
+	var studentName=request.body.firstname;
+	var studentAge=request.body.age;
+	Student.create({name:studentName,age:studentAge}).exec(function(error, students){
 		if(error){
 			return response.serverError();
 		}
@@ -71,13 +71,13 @@ insert:function(request,response){
 
 edit:function(request,response){
 	console.log("##",request.params.all());
-	 var sid=request.params.all().id;
+	 var studentid=request.params.all().id;
 	// var sname=request.body.name;
 	// var sage=request.body.age;
 	// sails.log(id)
-	console.log(sid);
+	console.log(studentid);
 	
-	Student.findOne({id:sid}).exec(function(error, student){
+	Student.findOne({id:studentid}).exec(function(error, student){
 		if(error){
 			return response.serverError();
 		}
@@ -91,11 +91,11 @@ edit:function(request,response){
 },	
 
 update:function(request,response){
-	var sid=request.body.id;
-	var sname=request.body.fname;
-	var sage=request.body.age;
+	var studentid=request.body.id;
+	var studentName=request.body.fname;
+	var studentAge=request.body.age;
 
-	Student.update({id:sid},{name:sname,age:sage}).exec(function(error, students){
+	Student.update({id:studentid},{name:studentName,age:studentAge}).exec(function(error, students){
 		if(error){
 			return response.serverError();
 		}
@@ -121,9 +121,9 @@ viewAll:function(request,response){
 },
 
 view:function(request,response){
-    var abc=request.query.id;
-    sails.log(abc);
-	Student.findOne({id: abc}).exec(function(error, student){
+    var studentid=request.query.id;
+    sails.log(studentid);
+	Student.findOne({id: studentid}).exec(function(error, student){
         if(error){
         	return response.serverError();
         }

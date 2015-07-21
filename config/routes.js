@@ -48,21 +48,24 @@ module.exports.routes = {
   delete /student/:id = delete
 
   */
+
+
+
   'get /student/find': 'StudentController.find',
   'post /student/insert': 'StudentController.insert',
-  'get /student/viewAll': 'StudentController.viewAll',
-  'get /student/view': 'StudentController.view',
+  'get /student': 'StudentController.viewAll',
+  'get /student': 'StudentController.view',
   'post /student/update': 'StudentController.update',
   'get /student/edit/:id': 'StudentController.edit',
 
 
 
-  'get /class/find': 'ClassController.find',
-  'post /class/insert': 'ClassController.insert',
-  'get /class/viewAll': 'ClassController.viewAll',
-  'get /class/view': 'ClassController.view',
-  'post /class/update': 'ClassController.update',
-  'get /student/edit/:id': 'ClassController.edit',
+  'get /class/find': 'ClassesController.find',
+  'post /class/insert': 'ClassesController.insert',
+  'get /class/viewAll': 'ClassesController.viewAll',
+  'get /class/view': 'ClassesController.view',
+  'post /class/update': 'ClassesController.update',
+  'get /class/edit/:id': 'ClassesController.edit',
 
 
 

@@ -6,8 +6,8 @@
 <table border=1>
 
 <tr>
-<td> Name </td>
-<td> Age </td>
+<td> Number </td>
+<td> Strength </td>
 </tr>
 
 <%  for(var i=0;i<recorded.length;i++){%>
@@ -17,7 +17,7 @@
 		<a href="/class/view?id=<%= recorded[i].id %>"><%= recorded[i].name %>
 		</td>
 		<td>
-		<%= recorded[i].age %>
+		<%= recorded[i].strength %>
 		</td>
 <%}	%>
 
