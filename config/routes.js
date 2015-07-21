@@ -38,6 +38,9 @@ module.exports.routes = {
   '/class/': {
     view: 'classview'
   },
+  '/':{
+    view: 'welcome'
+  },
   /*
   /students/
   get /students/  = viewAll   ?name=dasdfdsa&age=ewrwer
