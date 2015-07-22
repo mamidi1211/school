@@ -9,11 +9,25 @@ module.exports = {
 
   attributes: {
 
-    name : { type: 'string' },
+    id : { 
+        type: 'integer', 
+        autoIncrement : true, 
+        primaryKey: true
+            },
+            
+    name : { 
+    	type: 'string',
+    	required: true 
+    		},
 
-    age : { type: 'integer' },
+    age : { 
+    	type: 'integer',
+    	required: true 
+    		},
 
-    id : { type: 'integer', autoIncrement : true }
+    standard: {
+    	model: 'Class'
+    }			
   }
 };
 
