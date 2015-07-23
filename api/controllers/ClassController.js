@@ -66,8 +66,9 @@ edit:function(request,response){
 
 update:function(request,response){
 	var classid=request.body.id;
-	var className=request.body.className;
-	var classStrength=request.body.classStrength;
+	var className=request.body.fnumber;
+	var classStrength=request.body.strength;
+	sails.log(className);
 
 	Class.update({id:classid},{name:className,strength:classStrength}).exec(function(error, classes){
 		if(error){
