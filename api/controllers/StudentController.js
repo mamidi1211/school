@@ -38,21 +38,21 @@ module.exports = {
 
 // },
 
-find:function(request,response){    
+// find:function(request,response){    
 
-   var studentName=request.query.student;
+//    var studentName=request.query.student;
         
-        sails.log("Done");
+//         sails.log("Done");
 
-        Student.find({name: studentName}).exec(function(error, students){
-                if(error){
-                  return response.serverError();
-                }
-              else{
-                response.view("student/myview", {name:students[0].age, inserted: undefined})
-            }
-            });
-    }, 
+//         Student.find({name: studentName}).exec(function(error, students){
+//                 if(error){
+//                   return response.serverError();
+//                 }
+//               else{
+//                 response.view("student/myview", {name:students[0].age, inserted: undefined})
+//             }
+//             });
+//     }, 
 
 insert:function(request,response){
 
@@ -71,7 +71,7 @@ insert:function(request,response){
 
 edit:function(request,response){
 	console.log("##",request.params.all());
-	 var studentid=request.params.all().id;
+	 var studentid=request.params.id;
 	// var sname=request.body.name;
 	// var sage=request.body.age;
 	// sails.log(id)
@@ -106,9 +106,9 @@ update:function(request,response){
 },
 
 
-viewAll:function(request,response){
+find:function(request,response){
 
-
+    sails.log('hello');
 	Student.find().exec(function(error, students){
 		if(error){
 			return response.serverError();
@@ -120,8 +120,8 @@ viewAll:function(request,response){
 	});
 },
 
-view:function(request,response){
-    var studentid=request.query.id;
+findOne:function(request,response){
+    var studentid=request.params.id;
     sails.log(studentid);
 	Student.findOne({id: studentid}).exec(function(error, student){
         if(error){

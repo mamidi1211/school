@@ -7,29 +7,27 @@
 
 module.exports = {
 	
-	find:function(request, response){
-		// camelCase
-		//className	
-		var className=request.query.clas;
+	// find:function(request, response){
+	// 	// camelCase
+	// 	//className	
+	// 	var className=request.query.clas;
         
-        sails.log("Done");
+ //        sails.log("Done");
 
-        Class.find({name: className}).exec(function(error, classes){
-                if(error){
-                  return response.serverError();
-                }
-              else{
-                response.view("class/classview", {name:classes[0].age, inserted: undefined})
-            }
-            });
-	},
+ //        Class.find({name: className}).exec(function(error, classes){
+ //                if(error){
+ //                  return response.serverError();
+ //                }
+ //              else{
+ //                response.view("class/classview", {name:classes[0].age, inserted: undefined})
+ //            }
+ //            });
+	// },
 
 	insert:function(request,response){
 
 	var className=request.body.number;
 	var classStrength=request.body.strength;
-	sails.log(className);
-	sails.log(classStrength);
 	Class.create({name:className,strength:classStrength}).exec(function(error, classes){
 		if(error){
 			return response.serverError();
@@ -81,7 +79,7 @@ update:function(request,response){
 },
 
 
-viewAll:function(request,response){
+find:function(request,response){
 
 
 	Class.find().exec(function(error, classes){
@@ -95,8 +93,8 @@ viewAll:function(request,response){
 	});
 },
 
-view:function(request,response){
-    var classid=request.query.id;
+findOne:function(request,response){
+    var classid=request.params.id;
     sails.log(classid);
 	Class.findOne({id: classid}).exec(function(error, classes){
         if(error){
