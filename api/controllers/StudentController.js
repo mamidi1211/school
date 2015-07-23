@@ -49,7 +49,7 @@ find:function(request,response){
                   return response.serverError();
                 }
               else{
-                response.view("myview", {name:students[0].age, inserted: undefined})
+                response.view("student/myview", {name:students[0].age, inserted: undefined})
             }
             });
     }, 
@@ -63,7 +63,7 @@ insert:function(request,response){
 			return response.serverError();
 		}
 		else{
-			response.view('myview',{name : "Recorded", recorded: students});
+			response.view('student/myview',{name : "Recorded", recorded: students});
 		}
 	});
 },
@@ -85,7 +85,7 @@ edit:function(request,response){
 
 			// Student.findOne({id: id})
 			console.log("##", student);
-			response.view('editview',{name : "Edited", edited: student});
+			response.view('student/editview',{name : "Edited", edited: student});
 		}
 	});
 },	
@@ -100,7 +100,7 @@ update:function(request,response){
 			return response.serverError();
 		}
 		else{
-			response.view('myview',{name : "Recorded", recorded: students});
+			response.view('student/myview',{name : "Recorded", recorded: students});
 		}
 	});
 },
@@ -114,7 +114,7 @@ viewAll:function(request,response){
 			return response.serverError();
 		}
 		else{
-			return response.view('listView',{name : "Getting All Records", recorded: students});
+			return response.view('student/listView',{name : "Getting All Records", recorded: students});
 		}
 
 	});
@@ -128,7 +128,7 @@ view:function(request,response){
         	return response.serverError();
         }
         else{
-        	return response.view('individualview',{name : "Getting a record", recorded: student});
+        	return response.view('student/individualview',{name : "Getting a record", recorded: student});
         }
 	});
 }

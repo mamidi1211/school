@@ -33,10 +33,10 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/student/': {
-    view: 'myview'
+    view: 'student/myview'
   },
   '/class/': {
-    view: 'classview'
+    view: 'class/classview'
   },
   '/':{
     view: 'welcome'
@@ -52,7 +52,7 @@ module.exports.routes = {
 
   */
 
-
+   
   'get /student/find': 'StudentController.find',
   'post /student/insert': 'StudentController.insert',
   'get /student/viewall': 'StudentController.viewAll',
