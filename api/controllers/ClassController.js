@@ -26,8 +26,10 @@ module.exports = {
 
 	insert:function(request,response){
 
-	var className=request.body.number;
+	var className=request.body.classname;
 	var classStrength=request.body.strength;
+	sails.log(className);
+	sails.log(classStrength);
 	Class.create({name:className,strength:classStrength}).exec(function(error, classes){
 		if(error){
 			return response.serverError();
@@ -43,7 +45,7 @@ module.exports = {
 
 edit:function(request,response){
 	console.log("##",request.params.all());
-	 var classid=request.params.all().id;
+	 var classid=request.params.id;
 	// var sname=request.body.name;
 	// var sage=request.body.age;
 	// sails.log(id)
@@ -64,7 +66,7 @@ edit:function(request,response){
 
 update:function(request,response){
 	var classid=request.body.id;
-	var className=request.body.fnumber;
+	var className=request.body.classname;
 	var classStrength=request.body.strength;
 	sails.log(className);
 

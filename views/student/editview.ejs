@@ -1,16 +1,21 @@
+
 <form method=POST action="/student/update">
 
+<div class="col-sm-6">
 <h4>
 
-First name:<br>
-<input type="text" name="fname" value="name">
+Name:<br>
+<input type="text" name="name" value="<%=edited.name%>">
 <br>
 Age:<br>
-<input type="text" name="age"><br>
+<input type="text" name="age" value="<%=edited.age%>">
+<br>
+
 <input type="hidden" name="id" value="<%=edited.id%>">
 Submit:<br>
 <input type="Submit" name="submit" value="Edit"> 
 </h4>
+</div>
 </form>
 
 

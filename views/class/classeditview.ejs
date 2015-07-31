@@ -1,16 +1,19 @@
-<form method=POST action="/class/update">
 
+<form method=POST action="/class/update">
+<div class="col-sm-6">
 <h4>
 
-Number:<br>
-<input type="text" name="fnumber" value="name">
+ClassName:<br>
+<input type="text" name="classname" value="<%=edited.name%>">
 <br>
 Strength<br>
-<input type="text" name="strength"><br>
+<input type="text" name="strength" value="<%=edited.strength%>">
+<br>
 <input type="hidden" name="id" value="<%=edited.id%>">
 Submit:<br>
 <input type="Submit" name="submit" value="Edit"> 
 </h4>
+</div>
 </form>
 
 

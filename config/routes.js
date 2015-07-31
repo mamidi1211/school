@@ -38,6 +38,9 @@ module.exports.routes = {
   '/class/': {
     view: 'class/classview'
   },
+  '/thanku':{
+    view: 'thanku'
+  },
   '/':{
     view: 'welcome'
   },
@@ -56,24 +59,24 @@ module.exports.routes = {
 
   'get /student' : 'StudentController.find',
   'post /student' : 'StudentController.insert',
-  'get /student/:id': 'StudentController.edit',
+  'get /student/:id/edit': 'StudentController.edit',
   'get /student/:id': 'StudentController.findOne',
   
-  'put /student/update': 'StudentController.update',
+  'post /student/update': 'StudentController.update',
   
 
   //Class
 
   'get /class': 'ClassController.find',
   'post /class': 'ClassController.insert',
-  'get /class/:id': 'ClassController.edit',
+  'get /class/:id/edit': 'ClassController.edit',
   'get /class/:id': 'ClassController.findOne',
   
-  'put /class/update': 'ClassController.update',
+  'post /class/update': 'ClassController.update',
   
 
 
-
+  'get  /association/:id': 'StudentController.populate'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

@@ -1,0 +1,31 @@
+<form method=POST action="/class/update">
+
+<div class="col-sm-6">
+<h4>
+
+ID: <br>
+<input type="text" name="id" value="<%=recorded.id%>">
+<br>
+Name: <br>
+<input type="text" name="name" value="<%=recorded.name%>">
+<br>
+Age: <br>
+<input type="text" name="age" value="<%=recorded.age%>">
+<br>
+ClassName: <br>
+<input type="text" name="classname" value="<%=recorded.classname%>">
+<br>
+
+<select name="dropdown">
+   <%for(var i=0;i<recorded.length;i++) {%>
+ <option value="<%=recorded[i].classname %>"><%=recorded[i].classname %></option>
+<%}%>
+</select> <br><br> 
+
+<br>
+<input type="Submit" name="submit" value="Associate"> 
+</h4>
+</div>
+</form>
+
+

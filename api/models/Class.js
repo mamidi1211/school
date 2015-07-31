@@ -15,18 +15,13 @@ module.exports = {
         primaryKey: true 
         },
 
-    number : { 
+    classname : { 
     	type: 'integer' 
     			},
 
     strength : { 
     	type: 'integer' 
     			},
-
-    students: {
-    	collection: 'Student',
-    	via: 'standard'
-    }	
   }
 };
 

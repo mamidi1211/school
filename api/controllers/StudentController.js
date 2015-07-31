@@ -55,10 +55,10 @@ module.exports = {
 //     }, 
 
 insert:function(request,response){
-
 	var studentName=request.body.firstname;
 	var studentAge=request.body.age;
-	Student.create({name:studentName,age:studentAge}).exec(function(error, students){
+	var className=request.body.classname;
+	Student.create({name:studentName,age:studentAge,classname:className}).exec(function(error, students){
 		if(error){
 			return response.serverError();
 		}
@@ -75,7 +75,7 @@ edit:function(request,response){
 	// var sname=request.body.name;
 	// var sage=request.body.age;
 	// sails.log(id)
-	console.log(studentid);
+	//console.log(studentid);
 	
 	Student.findOne({id:studentid}).exec(function(error, student){
 		if(error){
@@ -90,25 +90,38 @@ edit:function(request,response){
 	});
 },	
 
-update:function(request,response){
-	var studentid=request.body.id;
-	var studentName=request.body.fname;
+update:function(request,response){	
+	var studentid=request.params.all().id;
+	var studentName=request.body.name;
 	var studentAge=request.body.age;
-
-	Student.update({id:studentid},{name:studentName,age:studentAge}).exec(function(error, students){
+	var className=request.body.classname;
+	sails.log.verbose("!!!!!!", studentName , studentAge, studentid, "$$$");
+	//Student.findOne({id: studentid}).exec(sails.log);
+	Student.update({id :studentid}, {name:studentName,age:studentAge,classname:className}).exec(function(error, student){	
 		if(error){
+			//console.log(error);	
 			return response.serverError();
 		}
 		else{
-			response.view('student/myview',{name : "Recorded", recorded: students});
+			console.log("####",student);
+			response.view('student/myview',{name : "Recordsorded", recorded: student});
 		}
 	});
+
+	// if(request.isAjax == true)
+	// {
+	// 	request.view('student/myview',{name : "Recorded"});
+	// }	
+	// else{
+	// 	request.view('student/myview',{name : "Recorded"});	
+	// }
+	
 },
 
 
 find:function(request,response){
 
-    sails.log('hello');
+    //sails.log('hello');
 	Student.find().exec(function(error, students){
 		if(error){
 			return response.serverError();
@@ -130,6 +143,23 @@ findOne:function(request,response){
         else{
         	return response.view('student/individualview',{name : "Getting a record", recorded: student});
         }
+	});
+},
+
+populate:function(request,response){
+	var data=request.params.id;
+	console.log(data+"   "+JSON.stringify(request.params.all()));
+	Student.findOne({id: data}).populate('standard').exec(function(error, assoc){
+		if(error){
+			return response.serverError();
+		}
+		else{
+			sails.log("##",assoc);
+			return response.view('associate',{
+				name : "Association", 
+				recorded: assoc
+			})
+		}
 	});
 }
 

@@ -16,17 +16,21 @@ module.exports = {
             },
             
     name : { 
-    	type: 'string',
-    	required: true 
+    	type: 'string'
+    	
     		},
 
     age : { 
-    	type: 'integer',
-    	required: true 
+    	type: 'integer'
+    	
     		},
 
+    classname : {
+        type: 'integer'
+            },        
+
     standard: {
-    	model: 'Class'
+    	model: 'Class'        
     }			
   }
 };

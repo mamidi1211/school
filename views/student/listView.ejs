@@ -1,13 +1,13 @@
-<h1><%= name %></h1>
-<p>
-<%= JSON.stringify(recorded) %>
-</p>
 
+<h1><%= name %></h1>
+
+<div class="col-sm-8">
 <table border=1>
 
 <tr>
 <td> Name </td>
 <td> Age </td>
+<td> Edit option </td>
 </tr>
 
 <%  for(var i=0;i<recorded.length;i++){%>
@@ -19,6 +19,10 @@
 		<td>
 		<%= recorded[i].age %>
 		</td>
+		<td>
+		<a href="/student/<%= recorded[i].id %>/edit">Edit 
+		</td>
 <%}	%>
 
 </table>
+</div>

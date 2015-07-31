@@ -1,7 +1,83 @@
+<div class="col-sm-6">
+<h1><%= name %></h1>
+
+<p>
+<%= JSON.stringify(recorded) %>
+</p>
+
+<a href="/student/<%= recorded['id'] %>/edit" class="btn btn-lg btn-success">Update </a>
+<br>
+<br>
+
+<a href="/association/<%= recorded['id'] %>" class="btn btn-lg btn-success">Association</a>
+</div>
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
 <h1><%= name %></h1>
 <p>
 <%= JSON.stringify(recorded) %>
 </p>
 
-<a href="/student/<%= recorded['id'] %>" >Update </a>
 
+</head>
+
+
+<body>
+
+
+<input type="button" id="btn_update" class="btn btn-info" value="Update">
+
+
+</body>
+</html>
+<script>
+$(document).ready(function(){
+	// var person = new Object();
+
+ //        person.nam = "Sai";
+
+ //        person.surname = "mamidi";
+
+    $("#btn_update").click(function(){
+    	alert("123");
+    	// alert(person);
+    	$.ajax({
+
+                url: "/student/<%= recorded['id'] %>",
+
+                type: 'PUT',
+
+                dataType: 'json',
+
+                data:  {
+                	"name" :"<%= recorded.name %>",
+                	"age": "<%= recorded.age %>"
+                },
+
+                success: function(data) {
+                	console.log("Here");
+            }
+        });
+    	// $.post("/student/<%= recorded['id'] %>", 
+    	// 	function(){
+    	// 		alert("hello");
+    	// });
+    });
+  //   	$.put = function("/student"){
+ 
+  // 	return $.ajax({
+  //    url: "/student/<%= recorded['id'] %>",
+    
+  //   type: 'PUT'
+  // });
+});
+</script>
+
+ -->
