@@ -146,22 +146,36 @@ findOne:function(request,response){
 	});
 },
 
-populate:function(request,response){
+populate:function(request,response)
+{
 	var data=request.params.id;
 	console.log(data+"   "+JSON.stringify(request.params.all()));
-	Student.findOne({id: data}).populate('standard').exec(function(error, assoc){
-		if(error){
+
+	Student.findOne({id: data}).populate('standard').exec(function(error, assoc)
+	{
+		if(error)
+		{
 			return response.serverError();
 		}
-		else{
+		else
+		{
 			sails.log("##",assoc);
-			return response.view('associate',{
-				name : "Association", 
-				recorded: assoc
-			})
+			Class.find().exec(function(error, clas)
+			{
+				if(error)
+				{
+					return response.serverError();
+				}
+				else
+				{
+					return response.view('associate',{ name : "Association", recorded1: clas, recorded:assoc });
+				}	
+			});
+
 		}
 	});
 }
+
 
 };
 

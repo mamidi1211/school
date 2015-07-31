@@ -16,7 +16,8 @@ module.exports = {
         },
 
     classname : { 
-    	type: 'integer' 
+    	type: 'integer',
+        unique: true 
     			},
 
     strength : { 
