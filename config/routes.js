@@ -19,29 +19,26 @@
  * For more information on configuring custom routes, check out:
  * http://sailsjs.org/#!/documentation/concepts/Routes/RouteTargetSyntax.html
  */
-
 module.exports.routes = {
-
   /***************************************************************************
-  *                                                                          *
-  * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
-  * etc. depending on your default view engine) your home page.              *
-  *                                                                          *
-  * (Alternatively, remove this and add an `index.html` file in your         *
-  * `assets` directory)                                                      *
-  *                                                                          *
-  ***************************************************************************/
-
+   *                                                                          *
+   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
+   * etc. depending on your default view engine) your home page.              *
+   *                                                                          *
+   * (Alternatively, remove this and add an `index.html` file in your         *
+   * `assets` directory)                                                      *
+   *                                                                          *
+   ***************************************************************************/
   '/student/': {
     view: 'student/myview'
   },
   '/class/': {
     view: 'class/classview'
   },
-  '/thanku':{
+  '/thanku': {
     view: 'thanku'
   },
-  '/':{
+  '/': {
     view: 'welcome'
   },
   /*
@@ -54,38 +51,26 @@ module.exports.routes = {
   delete /student/:id = delete
 
   */
-   
   //Student
-
-  'get /student' : 'StudentController.find',
-  'post /student' : 'StudentController.insert',
+  'get /student': 'StudentController.find',
+  'post /student': 'StudentController.insert',
   'get /student/:id/edit': 'StudentController.edit',
   'get /student/:id': 'StudentController.findOne',
-  
   'post /student/update': 'StudentController.update',
-  
-
   //Class
-
   'get /class': 'ClassController.find',
   'post /class': 'ClassController.insert',
   'get /class/:id/edit': 'ClassController.edit',
   'get /class/:id': 'ClassController.findOne',
-  
   'post /class/update': 'ClassController.update',
-  
-
-
   'get  /association/:id': 'StudentController.populate'
-  /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the custom routes above, it   *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
-
+    /***************************************************************************
+     *                                                                          *
+     * Custom routes here...                                                    *
+     *                                                                          *
+     * If a request to a URL doesn't match any of the custom routes above, it   *
+     * is matched against Sails route blueprints. See `config/blueprints.js`    *
+     * for configuration options and examples.                                  *
+     *                                                                          *
+     ***************************************************************************/
 };
-

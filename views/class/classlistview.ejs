@@ -1,27 +1,22 @@
 <h1><%= name %></h1>
-
 <div class="col-sm-4">
-<table border=1>
-
-<tr>
-<td> ClassName </td>
-<td> Strength </td>
-<td> Edit option </td>
-</tr>
-
-<%  for(var i=0;i<recorded.length;i++){%>
-	<tr>
-
-		<td>
-		<a href="/class/<%= recorded[i].id %>"><%= recorded[i].name %>
-		</td>
-		<td>
-		<%= recorded[i].strength %>
-		</td>
-		<td>
-		<a href="/class/<%= recorded[i].id %>/edit">Edit 
-		</td>
-<%}	%>
-
-</table>
-</div>
+  <table border=1>
+    <tr>
+      <td> ClassName </td>
+      <td> Strength </td>
+      <td> Edit option </td>
+    </tr>
+    <%  for(var i=0;i<recorded.length;i++){%>
+    <tr>
+      <td>
+        <a href="/class/<%= recorded[i].id %>"><%= recorded[i].name %>
+      </td>
+      <td>
+        <%= recorded[i].strength %>
+      </td>
+      <td>
+        <a href="/class/<%= recorded[i].id %>/edit">Edit
+      </td>
+      <%}	%>
+    </table>
+  </div>

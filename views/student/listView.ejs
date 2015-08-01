@@ -1,36 +1,30 @@
 <div class="container">
-<div class="jumbotron">
-<h2><%= name %></h2>
+  <div class="jumbotron">
+    <h2><%= name %></h2>
+  </div>
 </div>
-</div>
-
 <!-- <div class="col-sm-8"> -->
 <div class="container">
-<div class="jumbotron">
-<table border=1>
-
-<tr>
-<td> Name </td>
-<td> Age </td>
-<td> Edit option </td>
-</tr>
-
-<%  for(var i=0;i<recorded.length;i++){%>
-	<tr>
-
-		<td>
-		<a href="/student/<%= recorded[i].id %>"><%= recorded[i].name %>
-		</td>
-		<td>
-		<%= recorded[i].age %>
-		</td>
-		<td>
-		<a href="/student/<%= recorded[i].id %>/edit">Edit 
-		</td>
-		
-<%}	%>
-
-</table>
-</div>
-</div>
+  <div class="jumbotron">
+    <table border=1>
+      <tr>
+        <td> Name </td>
+        <td> Age </td>
+        <td> Edit option </td>
+      </tr>
+      <%  for(var i=0;i<recorded.length;i++){%>
+      <tr>
+        <td>
+          <a href="/student/<%= recorded[i].id %>"><%= recorded[i].name %>
+        </td>
+        <td>
+          <%= recorded[i].age %>
+        </td>
+        <td>
+          <a href="/student/<%= recorded[i].id %>/edit">Edit
+        </td>
+        <%} %>
+      </table>
+    </div>
+  </div>
 </div>
