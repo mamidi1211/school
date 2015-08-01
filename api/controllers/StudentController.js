@@ -69,8 +69,10 @@ insert:function(request,response){
 },
 
 
+
+
 edit:function(request,response){
-	console.log("##",request.params.all());
+	//console.log("##",request.params.all());
 	 var studentid=request.params.id;
 	// var sname=request.body.name;
 	// var sage=request.body.age;
@@ -95,7 +97,8 @@ update:function(request,response){
 	var studentName=request.body.name;
 	var studentAge=request.body.age;
 	var className=request.body.classname;
-	sails.log.verbose("!!!!!!", studentName , studentAge, studentid, "$$$");
+	//sails.log.verbose("!!!!!!", studentName , studentAge, studentid, "$$$");
+	sails.log("studentid >>>>>>>>>>>>",studentid);
 	//Student.findOne({id: studentid}).exec(sails.log);
 	Student.update({id :studentid}, {name:studentName,age:studentAge,classname:className}).exec(function(error, student){	
 		if(error){
